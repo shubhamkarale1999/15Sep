@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _15Sep
+{
+    internal class pricelessthan1000
+    {
+        public static void price()
+        {
+            Console.WriteLine("Enetr Product Numbers");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Product Details");
+            Console.WriteLine("brand Name");
+            Console.WriteLine("Name");
+            Console.WriteLine("price");
+            List<Brand> brands = new List<Brand>();
+            {
+                for (int i = 0; i < num; i++)
+                {
+                    Console.WriteLine("Eter Details");
+                    brands.Add(new Brand() { brandName = Console.ReadLine(), name = Console.ReadLine(), price = int.Parse(Console.ReadLine()) });
+                }
+                Console.WriteLine("Please Enter Char");
+                string s = Console.ReadLine();
+                var result = (from obj in brands
+                              where obj.price<1000
+                              select obj).ToList();
+                Console.WriteLine("Char contained");
+                foreach (var brand in result)
+                {
+                    Console.WriteLine(brand);
+                }
+                Console.ReadLine();
+            }
+        }
+    }
+}
